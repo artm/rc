@@ -1,0 +1,31 @@
+#########################################################################
+# from http://tech.inhelsinki.nl/gnu_developement_under_mac_os_x/
+#
+# Be 8 bit clean.
+#set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# visible-stats
+# Append a mark according to the file type in a listing
+set visible-stats off
+set mark-directories on
+
+# Show all instead of beeping first
+set show-all-if-ambiguous on
+
+# allow the use of the Home/End keys
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# allow the use of the Delete/Insert keys
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+
+# alternate mappings for "page up" and "page down" to search the history
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+#########################################################################
+
+set bell-style visible
