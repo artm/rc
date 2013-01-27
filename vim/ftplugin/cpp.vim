@@ -1,0 +1,1 @@
+ru ftplugin/c.vim

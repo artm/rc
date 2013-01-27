@@ -1,0 +1,35 @@
+snippet mybook "My book skeleton"
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = XeLaTeX
+\documentclass[12pt,oneside,twocolumn]{memoir}
+\usepackage{artmbook}
+\synctex=1
+\pagestyle{BookChapHeader}
+\newcommand{\attrib}[1]{%
+\nopagebreak{\raggedleft\footnotesize #1\par}}
+%\usepackage{polyglossia}
+%\setmainlanguage{russian}
+%\newfontfamily\cyrillicfont{Trebuchet MS}
+\begin{document}
+\title{${1}}
+\subtitle{${4}}
+\author{${2}}
+\date{${3}}
+\ArtmTitle
+% use this for book that start with some meta pages
+%\hypertarget{start}{}%
+%\bookmark[dest=start]{* * *}
+
+% book body
+$0
+
+\end{document}
+% vim:ft=tex
+endsnippet
+
+snippet verse "A verse environment"
+\settowidth{\versewidth}{${1}}
+\begin{verse}[\versewidth]
+$0
+\end{verse}
+endsnippet
