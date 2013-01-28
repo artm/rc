@@ -17,7 +17,7 @@ for file in * ; do
       elif [ -e $link ] ; then
         if [ ! -e $BACKUP_DIR/$file ] ; then
           echo "BACKUP .$file"
-          mkdir -b "$BACKUP_DIR"
+          mkdir -p "$BACKUP_DIR"
           mv "$link" "$BACKUP_DIR/$file"
         else
           echo "WARNING: wanted to backup $link but $BACKUP_DIR/$file already exists"
@@ -25,7 +25,7 @@ for file in * ; do
         fi
       fi
       echo "Installing $file symlink"
-      ln -s "$link" "rc/$file"
+      ln -s "rc/$file" "$link"
       ;;
   esac
 done
