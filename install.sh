@@ -7,7 +7,7 @@ operation=install
 
 while getopts "?hu" opt; do
   case $opt in
-    ?|h)
+    '?'|h)
       echo Usage: $(basename $0) [-h] [-u]
       echo
       echo "-h    help"
