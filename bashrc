@@ -235,5 +235,6 @@ PROMPT_COMMAND=after_command
 export PS1="$LONG_PS1"
 # }}}
 
+have_exe dpi && eval "$(dpi init -)"
 source_if_exists ~/.bashrc.local
 
