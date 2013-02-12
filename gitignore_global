@@ -3,5 +3,5 @@
 *.pyc
 tags
 .bundle
-vendor
+vendor/*
 .*.sw?
