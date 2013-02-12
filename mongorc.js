@@ -1,6 +1,6 @@
 prompt = function() {
   var host = db.serverStatus().host;
-  return "\nMongo: " + db + '@' + host + "\n$ ";
+  return "\nmongo://" + host + "/" + db + "\n$ ";
 }
 
 DBQuery.prototype._prettyShell = true
