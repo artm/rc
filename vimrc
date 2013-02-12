@@ -56,8 +56,8 @@ syntax enable
 " }}}
 
 " Plugin etc settings {{{
-fu HasPlugin(file)
-  return globpath( &runtimepath, "**/" . a:file )
+fu! HasPlugin(file)
+  return globpath( &runtimepath, "**/" . a:file ) != ""
 endfu
 
 let g:tex_flavor = "latex"
@@ -81,10 +81,9 @@ endif
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_max_height = 20
 let g:ctrlp_reuse_window = 'help\|quickfix'
-"let g:ctrlp_open_new_file = 't'
 let g:ctrlp_open_multiple_files = '2vjr'
 let g:ctrlp_arg_map = 1
-let g:ctrlp_default_input = 1
+nmap <C-B> :CtrlPBuffer<CR>
 " }}}
 " }}}
 
