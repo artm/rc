@@ -71,7 +71,9 @@ if has("autocmd") " {{{
 endif " }}}
 
 " color settings {{{
-color herald
+let g:light_scheme='summerfruit256'
+let g:dark_scheme='herald'
+nmap <Leader>b :ToggleScheme<CR>
 syntax enable
 " }}}
 
