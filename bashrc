@@ -177,6 +177,12 @@ alias b="bundle exec"
 have_exe rbenv && eval "$(rbenv init -)"
 # }}}
 
+# more colors in gnome-terminal {{{
+if [ "$COLORTERM" == "gnome-terminal" ] ; then
+  export TERM=xterm-256color
+fi
+# }}}
+
 # command prompt {{{
 function pretty_seconds {
   sec=$(($1 % 60))
