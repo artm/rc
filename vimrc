@@ -73,7 +73,7 @@ endif " }}}
 " color settings {{{
 let g:light_scheme='summerfruit256'
 let g:dark_scheme='herald'
-nmap <Leader>b :ToggleScheme<CR>
+nmap <Leader>cc :ToggleScheme<CR>
 syntax enable
 " }}}
 
