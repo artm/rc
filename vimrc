@@ -28,6 +28,20 @@ behave xterm " traditional visual mode
 set cursorline cursorcolumn
 " }}}
 
+" fix ctrl+cursor keys in tmux {{{
+if &term =~ '^screen'
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  exec "set <xUp>=\e[1;*A"
+  exec "set <xDown>=\e[1;*B"
+  exec "set <xRight>=\e[1;*C"
+  exec "set <xLeft>=\e[1;*D"
+  exec "set <PageUp>=\e[5;*~"
+  exec "set <PageDown>=\e[6;*~"
+  exec "set <xHome>=\e[1;*H"
+  exec "set <xEnd>=\e[1;*F"
+endif
+" }}}
+
 " global key mappings {{{
 " change to the current file path
 map <Leader>cd :lcd <C-R>=expand("%:p:h") . "/" <CR><CR>
@@ -36,6 +50,9 @@ nmap <C-w>- :split<CR>
 nmap <C-w>\| :vert split<CR>
 nmap <C-a>- :split<CR>
 nmap <C-a>\| :vert split<CR>
+
+nmap <C-PageUp> :tabn<CR>
+nmap <C-PageDown> :tabN<CR>
 " }}}
 
 if has("autocmd") " {{{
