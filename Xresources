@@ -1,4 +1,4 @@
-xterm*faceName: Ubuntu Mono
-xterm*faceSize: 9
+xterm*faceName: Monospace
+xterm*faceSize: 7
 xterm*termName: xterm-256color
 
