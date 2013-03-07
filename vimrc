@@ -51,8 +51,8 @@ nmap <C-w>\| :vert split<CR>
 nmap <C-a>- :split<CR>
 nmap <C-a>\| :vert split<CR>
 
-nmap <C-PageUp> :tabn<CR>
-nmap <C-PageDown> :tabN<CR>
+nmap <C-PageUp> :tabN<CR>
+nmap <C-PageDown> :tabn<CR>
 " }}}
 
 fu! DisableFolding()
