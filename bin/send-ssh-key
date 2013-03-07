@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$1" ] ; then
+  echo "Usage: $(basename $0) HOST"
+  exit 1
+fi
+
+host="$1"
+
+cat ~/.ssh/id_rsa.pub | ssh "$host" "tee -a ~/.ssh/authorized_keys"
