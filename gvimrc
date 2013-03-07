@@ -40,7 +40,7 @@ endif
 
 if has('gui_gtk2')
   set guioptions-=e
-  set guifont=Ubuntu\ Mono\ 10
+  set guifont=Monospace\ 7
   set linespace=-1
   set clipboard=unnamedplus
 endif
