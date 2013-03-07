@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# compare dates to
+# /var/log/installer/initial-status.gz
+
+for f in /var/log/dpkg.log* ; do
+  case "$f" in
+    *.gz)
+      zcat $f
+      ;;
+    *)
+      cat $f
+      ;;
+  esac
+done | awk '$3 == "install" { gsub(/:.*/,"",$4); print $1, $2, $4; }' | sort #| cut -d ' ' -f 3
+
