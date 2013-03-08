@@ -1,6 +1,6 @@
 " Vim color file
 " Maintainer: Martin Baeuml <baeuml@gmail.com>
-" Last Change: 2008-02-09
+" Modified: Artem Baguinski <femistofel@gmail.com>
 "
 " This color file is a modification of the "summerfruit" color scheme by Armin Ronacher
 " so that it can be used on 88- and 256-color xterms. The colors are translated
@@ -11,6 +11,10 @@
 " comment-coloring because that looks odd on my console.
 "
 " The original "summerfruit" color scheme and "desert256" are available from vim.org.
+"
+" I(artm) made CursorLine and CursorColumn lighter and distinct from Folded
+
+
 
 set background=light
 if version > 580
@@ -250,8 +254,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("IncSearch", "708090", "f0e68c", "")
     call <SID>X("Pmenu", "ffffff", "cb2f27", "")
     call <SID>X("SignColumn", "", "", "")
-    call <SID>X("CursorLine", "", "c0d9eb", "")
-    call <SID>X("CursorColumn", "", "c0d9eb", "")
+    call <SID>X("CursorLine", "", "E2EEF6", "")
+    call <SID>X("CursorColumn", "", "E2EEF6", "")
     call <SID>X("LineNr", "eeeeee", "438ec3", "bold")
     call <SID>X("MatchParen", "", "", "")
 
