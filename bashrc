@@ -244,3 +244,4 @@ export PS1="$LONG_PS1"
 have_exe dpi && eval "$(dpi init -)"
 source_if_exists ~/.bashrc.local
 
+have_exe tmux && echo "Active tmux sessions:" && tmux list-sessions -F "#S"
