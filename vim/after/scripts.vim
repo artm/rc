@@ -7,5 +7,7 @@ endfunction
 
 " append .sub or set to sub
 if s:looks_like_sub()
-  set ft+=.sub
+  if !(&filetype =~ '\.sub')
+    set ft+=.sub
+  endif
 endif
