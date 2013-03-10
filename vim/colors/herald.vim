@@ -155,7 +155,7 @@ elseif &t_Co == 256
 	hi PmenuSel       ctermbg=208  ctermfg=52    cterm=none
 
 	" -> Tabs
-	hi TabLine        ctermbg=233  ctermfg=234   cterm=none
+	hi TabLine        ctermbg=233  ctermfg=240   cterm=none
 	hi TabLineFill    ctermbg=0                  cterm=none
 	hi TabLineSel     ctermbg=234  ctermfg=252   cterm=bold
 	"
