@@ -227,8 +227,8 @@ if [ -n "$PS1" ] ; then
   # choose short or long prompt depending on whether user has issued a command
   SHORT_PS1="$ "
   LONG_PS1="
-  $(ansi $green)\u$(ansi)@$(ansi $magenta)\h$(ansi):$(ansi $blue)\w$(ansi)
-  \$ "
+$(ansi $green)\u$(ansi)@$(ansi $magenta)\h$(ansi):$(ansi $blue)\w$(ansi)
+\$ "
   function after_command
   {
     rt_stop
