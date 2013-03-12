@@ -6,6 +6,7 @@ set listchars=tab:›\ ,eol:¬,trail:·
 set guioptions-=T
 set guioptions-=r
 set guioptions-=L
+set guioptions-=m
 set visualbell
 
 if has('gui_macvim') " {{{
