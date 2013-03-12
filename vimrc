@@ -48,8 +48,6 @@ map <Leader>cd :lcd <C-R>=expand("%:p:h") . "/" <CR><CR>
 " splitting like in my tmux
 nmap <C-w>- :split<CR>
 nmap <C-w>\| :vert split<CR>
-nmap <C-a>- :split<CR>
-nmap <C-a>\| :vert split<CR>
 
 nmap <C-PageUp> :tabN<CR>
 nmap <C-PageDown> :tabn<CR>
@@ -116,6 +114,11 @@ if HasPlugin('NERD_tree.vim')
   map <Leader>n :NERDTreeToggle<CR>
 endif
 " }}}
+" Figitive {{{
+if HasPlugin('fugitive.vim')
+  nmap <Leader>g :Gstatus<CR>
+endif
+" }}}
 " CtrlP {{{
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_max_height = 20
@@ -128,7 +131,6 @@ nmap <Leader><C-P> :exec ":CtrlP " . expand('%:h')<CR>
 let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("h")': ['<c-h>'],
       \ }
-
 " }}}
 " }}}
 
