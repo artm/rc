@@ -39,6 +39,8 @@ if &term =~ '^screen'
   exec "set <PageDown>=\e[6;*~"
   exec "set <xHome>=\e[1;*H"
   exec "set <xEnd>=\e[1;*F"
+  " fix dragging inside tmux
+  set ttymouse=xterm2
 endif
 " }}}
 
@@ -53,6 +55,7 @@ nmap <C-PageUp> :tabN<CR>
 nmap <C-PageDown> :tabn<CR>
 " }}}
 
+" folding helpers {{{
 fu! DisableFolding()
   if !exists('w:last_fdm')
     let w:last_fdm=&foldmethod
@@ -66,6 +69,7 @@ fu! RestoreFolding()
     unlet w:last_fdm
   endif
 endfu
+" }}}
 
 if has("autocmd") " {{{
   filetype plugin indent on
@@ -82,6 +86,11 @@ if has("autocmd") " {{{
     " screwing up folding when switching between windows.
     au InsertEnter * call DisableFolding()
     au InsertLeave,WinLeave * call RestoreFolding()
+
+    set viewoptions=folds
+    au BufWinLeave * silent! mkview
+    au BufWinEnter * silent! loadview
+
   augroup END
 endif " }}}
 
