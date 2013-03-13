@@ -3,8 +3,8 @@ if !exists('g:dark_scheme') | let g:dark_scheme='slate' | endif
 
 fu! SetSchemeAndBg(scheme,bg)
   exec "color " . a:scheme
-  exec "set bg=" . a:bg
-  let g:colors_name = a:scheme
+  "exec "set bg=" . a:bg
+  "let g:colors_name = a:scheme
 endfu
 
 command! Light call SetSchemeAndBg(g:light_scheme,'light')
@@ -19,7 +19,7 @@ fu! ToggleScheme()
 endfu
 command! ToggleScheme call ToggleScheme()
 
-if exists('g:default_bg') && g:default_bg == light
+if exists('g:default_bg') && g:default_bg == 'light'
   Light
 else
   Dark
