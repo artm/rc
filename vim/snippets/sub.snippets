@@ -6,3 +6,25 @@ snippet sub "sub start template"
 
 $0
 endsnippet
+
+snippet ruby "ruby/main based sub template"
+#!/usr/bin/env ruby
+# Summary: $1
+# Help: --help
+
+ARGV.replace(%w(help)) if ARGV.empty?
+
+Main do
+  description <<-__
+  $0
+  __
+
+  def run ; help! ; end
+end
+
+BEGIN {
+  require 'rubygems'
+  require 'bundler/setup'
+  require 'main'
+}
+endsnippet
