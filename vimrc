@@ -52,6 +52,8 @@ nmap <C-w>\| :vert split<CR>
 
 nmap <C-PageUp> :tabN<CR>
 nmap <C-PageDown> :tabn<CR>
+" focus folding on current line
+nmap zf zMzv
 " }}}
 
 " folding helpers {{{
@@ -93,13 +95,6 @@ if has("autocmd") " {{{
   augroup END
 endif " }}}
 
-" color settings {{{
-let g:light_scheme='summerfruit256'
-let g:dark_scheme='herald'
-nmap <Leader>cc :ToggleScheme<CR>
-syntax enable
-" }}}
-
 " Plugin etc settings {{{
 fu! HasPlugin(file)
   return globpath( &runtimepath, "**/" . a:file ) != ""
@@ -139,6 +134,12 @@ nmap <Leader><C-P> :exec ":CtrlP " . expand('%:h')<CR>
 let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("h")': ['<c-h>'],
       \ }
+" }}}
+" color settings {{{
+let g:light_scheme='summerfruit256'
+let g:dark_scheme='herald'
+nmap <Leader>cc :ToggleScheme<CR>
+syntax enable
 " }}}
 " }}}
 
