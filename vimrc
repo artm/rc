@@ -1,6 +1,5 @@
 " prime the pathogen {{{
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
 " }}}
 
 " Some simple settings... {{{
