@@ -22,7 +22,7 @@ set modeline modelines=10
 set exrc " load local .vimrc
 set mouse=a
 " directories for backup and swpfiles
-set backupdir=~/.vim/backup directory=~/.vim/backup
+set backupdir=~/.vim/backup directory=~/.vim/backup backupcopy=yes
 behave xterm " traditional visual mode
 set cursorline cursorcolumn
 " }}}
