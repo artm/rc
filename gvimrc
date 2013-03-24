@@ -42,6 +42,5 @@ endif
 if has('gui_gtk2')
   set guioptions-=e
   set guifont=Monospace\ 9
-  set linespace=-1
   set clipboard=unnamedplus
 endif
