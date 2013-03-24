@@ -173,6 +173,7 @@ export LC_MEASUREMENT="en_GB.UTF-8"
 # ruby specific {{{
 export RI="--format ansi"
 export CUCUMBER_COLORS="comment=magenta,bold:tag=magenta"
+export RUBYOPT=rubygems
 alias b="bundle exec"
 have_exe rbenv && eval "$(rbenv init -)"
 # }}}
@@ -247,6 +248,6 @@ fi
 have_exe dpi && eval "$(dpi init -)"
 source_if_exists ~/.bashrc.local
 
-if [ -n "$PS1" ] ; then
+if [ -n "$PS1" -a -z "$TMUX" ] ; then
   have_exe tmux && echo "Active tmux sessions:" && tmux list-sessions
 fi
