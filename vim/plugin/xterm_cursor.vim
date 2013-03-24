@@ -65,7 +65,5 @@ if &term =~ "xterm\\|rxvt\\|screen"
   call xterm_cursor#set_color(g:xterm_cursor_normal_color)
   call xterm_cursor#send_escape_sequence(&t_EI)
 
-  " reset cursor when vim exits
-  au VimLeave * call xterm_cursor#send_escape_sequence( g:xterm_reset_cursor )
 
 endif
