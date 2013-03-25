@@ -1,19 +1,11 @@
 " Vim color file
-" Maintainer: Martin Baeuml <baeuml@gmail.com>
-" Modified: Artem Baguinski <femistofel@gmail.com>
+" Maintainer:  Artem Baguinski <femistofel@gmail.com>
 "
-" This color file is a modification of the "summerfruit" color scheme by Armin Ronacher
-" so that it can be used on 88- and 256-color xterms. The colors are translated
-" using Henry So's programmatic approximation of gui colors from his "desert256"
-" color scheme.
-"
-" I removed the "italic" option and the background color from
-" comment-coloring because that looks odd on my console.
-"
-" The original "summerfruit" color scheme and "desert256" are available from vim.org.
-"
-" I(artm) made CursorLine and CursorColumn lighter and distinct from Folded
-
+" The ancestry goes as:
+" - summerfruit by Armin Ronacher
+" - desert256 by Henry So (color functions)
+" - summerfruit256 by Martin Baeuml
+" - this theme, whatever I decide to call it
 
 
 set background=light
@@ -26,6 +18,9 @@ if version > 580
     endif
 endif
 let g:colors_name="summerfruit256"
+
+let s:main_background = "fcfcfc"
+let s:cursor_cross_backround = "d2dee6"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " functions {{{
@@ -238,8 +233,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " }}}
 
     " Global
-    call <SID>X("Normal", "000000", "ffffff", "")
-    call <SID>X("NonText", "e0e0e0", "ffffff", "")
+    call <SID>X("Normal", "000000", s:main_background, "")
+    call <SID>X("NonText", "e0e0e0", s:main_background, "")
     call <SID>X("SpecialKey", "ff0000", "e0e0e0", "")
 
     " Search
@@ -250,14 +245,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("StatusLine", "ffffff", "43c464", "bold")
     call <SID>X("StatusLineNC", "9bd4a9", "51b069", "")
     call <SID>X("VertSplit", "3687a2", "3687a2", "")
-    call <SID>X("Folded", "3c78a2", "c3daea", "")
+    call <SID>X("Folded", "c0c0c0", "f3dafa", "")
     call <SID>X("IncSearch", "708090", "f0e68c", "")
     call <SID>X("Pmenu", "ffffff", "cb2f27", "")
     call <SID>X("SignColumn", "", "", "")
-    call <SID>X("CursorLine", "", "E2EEF6", "")
-    call <SID>X("CursorColumn", "", "E2EEF6", "")
+    call <SID>X("CursorLine", "", s:cursor_cross_backround, "none")
+    call <SID>X("CursorColumn", "", s:cursor_cross_backround, "")
     call <SID>X("LineNr", "eeeeee", "438ec3", "bold")
     call <SID>X("MatchParen", "", "", "")
+
+    call <SID>X("DiffText", "", "ffb0b0", "none")
 
     " Specials
     call <SID>X("Todo", "e50808", "dbf3cd", "bold")
@@ -271,24 +268,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Statement", "fb660a", "", "")
     call <SID>X("Function", "ff0086", "", "")
     call <SID>X("PreProc", "ff0007", "", "")
-    call <SID>X("Comment", "22a21f", "", "bold")
+    call <SID>X("Comment", "909090", "", "")
     call <SID>X("Type", "70796b", "", "")
     call <SID>X("Error", "ffffff", "d40000", "")
     call <SID>X("Identifier", "ff0086", "", "")
     call <SID>X("Label", "ff0086", "", "")
-
-    " Python Highlighting
-    call <SID>X("pythonCoding", "ff0086", "", "")
-    call <SID>X("pythonRun", "ff0086", "", "")
-    call <SID>X("pythonBuiltinObj", "2b6ba2", "", "")
-    call <SID>X("pythonBuiltinFunc", "2b6ba2", "", "")
-    call <SID>X("pythonException", "ee0000", "", "")
-    call <SID>X("pythonExClass", "66cd66", "", "")
-    call <SID>X("pythonSpaceError", "", "", "")
-    call <SID>X("pythonDocTest", "2f5f49", "", "")
-    call <SID>X("pythonDocTest2", "3b916a", "", "")
-    call <SID>X("pythonFunction", "ee0000", "", "")
-    call <SID>X("pythonClass", "ff0086", "", "")
 
     " HTML Highlighting
     call <SID>X("htmlTag", "00bdec", "", "")
@@ -296,20 +280,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("htmlSpecialTagName", "4aa04a", "", "")
     call <SID>X("htmlTagName", "4aa04a", "", "")
     call <SID>X("htmlTagN", "4aa04a", "", "")
-
-    " Jinja Highlighting
-    call <SID>X("jinjaTagBlock", "ff0007", "fbf4c7", "bold")
-    call <SID>X("jinjaVarBlock", "ff0007", "fbf4c7", "")
-    call <SID>X("jinjaString", "0086d2", "fbf4c7", "")
-    call <SID>X("jinjaNumber", "bf0945", "fbf4c7", "bold")
-    call <SID>X("jinjaStatement", "fb660a", "fbf4c7", "bold")
-    call <SID>X("jinjaComment", "008800", "002300", "italic")
-    call <SID>X("jinjaFilter", "ff0086", "fbf4c7", "")
-    call <SID>X("jinjaRaw", "aaaaaa", "fbf4c7", "")
-    call <SID>X("jinjaOperator", "ffffff", "fbf4c7", "")
-    call <SID>X("jinjaVariable", "92cd35", "fbf4c7", "")
-    call <SID>X("jinjaAttribute", "dd7700", "fbf4c7", "")
-    call <SID>X("jinjaSpecial", "008ffd", "fbf4c7", "")
 
     " delete functions {{{
     delf <SID>X
