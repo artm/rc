@@ -136,7 +136,7 @@ let g:ctrlp_prompt_mappings = {
       \ }
 " }}}
 " color settings {{{
-let g:light_scheme='summerfruit256'
+let g:light_scheme='artm_light'
 let g:dark_scheme='herald'
 nmap <Leader>cc :ToggleScheme<CR>
 syntax enable
