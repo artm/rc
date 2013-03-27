@@ -246,8 +246,16 @@ fi
 # }}}
 
 have_exe dpi && eval "$(dpi init -)"
+
 source_if_exists ~/.bashrc.local
 
+# list tmux sessions {{{
 if [ -n "$PS1" -a -z "$TMUX" ] ; then
-  have_exe tmux && echo "Active tmux sessions:" && tmux list-sessions
+  if have_exe tmux ; then
+    if ! have_exe pgrep || pgrep tmux > /dev/null ; then
+      echo "tmux sessions:"
+      tmux list-sessions
+    fi
+  fi
 fi
+# }}}
