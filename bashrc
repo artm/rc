@@ -245,8 +245,6 @@ $(ansi $green)\u$(ansi)@$(ansi $magenta)\h$(ansi):$(ansi $blue)\w$(ansi)
 fi
 # }}}
 
-have_exe dpi && eval "$(dpi init -)"
-
 source_if_exists ~/.bashrc.local
 
 # list tmux sessions {{{
