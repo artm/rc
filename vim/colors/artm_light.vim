@@ -1,13 +1,14 @@
 " Vim color file
 " Maintainer:  Artem Baguinski <femistofel@gmail.com>
 "
-" The ancestry goes as:
-" - summerfruit by Armin Ronacher
-" - desert256 by Henry So (color functions)
-" - summerfruit256 by Martin Baeuml
-" - this theme, whatever I decide to call it
+" The ancestry goes like {{{
+"   - summerfruit by Armin Ronacher
+"   - desert256 by Henry So (color functions)
+"   - summerfruit256 by Martin Baeuml
+"   - artm_light
+" }}}
 
-
+" vim script houskeeping {{{
 set background=light
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
@@ -17,10 +18,19 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="summerfruit256"
+let g:colors_name="artm_light"
+" }}}
 
 let s:main_background = "fcfcfc"
 let s:cursor_cross_backround = "d2dee6"
+let s:active_window_frame_foreground = "fcfcfc"
+let s:active_window_frame_background = "51b069"
+let s:passive_window_frame_foreground = "51b069"
+let s:passive_window_frame_background = "9bd4a9"
+let s:gutter_background = "cbf4c9"
+
+let s:highlight_foreground = "af70af"
+let s:highlight_background = "efef70"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " functions {{{
@@ -232,36 +242,50 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     endfun
     " }}}
 
-    " Global
+    " Global {{{
     call <SID>X("Normal", "000000", s:main_background, "")
     call <SID>X("NonText", "e0e0e0", s:main_background, "")
     call <SID>X("SpecialKey", "ff0000", "e0e0e0", "")
+    " }}}
 
-    " Search
-    call <SID>X("Search", "800000", "ffae00", "")
-    call <SID>X("IncSearch", "800000", "ffae00", "")
+    " Search {{{
+    call <SID>X("Search", s:highlight_foreground, s:highlight_background, "")
+    call <SID>X("IncSearch", s:highlight_foreground, s:highlight_background, "inverse")
+    " }}}
 
-    " Interface Elements
-    call <SID>X("StatusLine", "ffffff", "43c464", "bold")
-    call <SID>X("StatusLineNC", "9bd4a9", "51b069", "")
-    call <SID>X("VertSplit", "3687a2", "3687a2", "")
+    " Interface Elements {{{
+    call <SID>X("StatusLine", s:active_window_frame_foreground, s:active_window_frame_background, "bold")
+    call <SID>X("StatusLineNC", s:passive_window_frame_foreground, s:passive_window_frame_background, "none")
+    call <SID>X("VertSplit", s:passive_window_frame_foreground, s:passive_window_frame_background, "none")
     call <SID>X("Folded", "a0a0a0", "f3dafa", "")
-    call <SID>X("IncSearch", "708090", "f0e68c", "")
-    call <SID>X("Pmenu", "ffffff", "cb2f27", "")
+    call <SID>X("Pmenu", "808080", "f0f0f0", "none")
+    call <SID>X("PmenuSel", "808080", s:gutter_background, "bold")
     call <SID>X("SignColumn", "", "", "")
     call <SID>X("CursorLine", "", s:cursor_cross_backround, "none")
     call <SID>X("CursorColumn", "", s:cursor_cross_backround, "")
-    call <SID>X("LineNr", "eeeeee", "438ec3", "bold")
+    call <SID>X("LineNr", "a0a0a0", s:gutter_background, "none")
+    call <SID>X("CursorLineNr", "808080", s:cursor_cross_backround, "bold")
     call <SID>X("MatchParen", "", "", "")
+    call <SID>X("Visual", "", s:highlight_background, "none")
+    " }}}
 
+    " diff {{{
     call <SID>X("DiffText", "", "ffb0b0", "none")
+    " }}}
+    " tabs {{{
+    call <SID>X("TabLine", s:passive_window_frame_foreground, s:passive_window_frame_background, "none")
+    call <SID>X("TabLineSel", s:active_window_frame_foreground, s:active_window_frame_background, "bold")
+    call <SID>X("TabLineFill", "", s:gutter_background, "none")
+    " }}}
 
-    " Specials
-    call <SID>X("Todo", "e50808", "dbf3cd", "bold")
+    " Specials {{{
+    " TODO FIXME
+    call <SID>X("Todo", s:highlight_foreground, s:highlight_background, "bold")
     call <SID>X("Title", "000000", "", "")
     call <SID>X("Special", "fd8900", "", "")
+    " }}}
 
-    " Syntax Elements
+    " Syntax Elements {{{
     call <SID>X("String", "0086d2", "", "")
     call <SID>X("Constant", "0086d2", "", "")
     call <SID>X("Number", "0086f7", "", "")
@@ -273,13 +297,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Error", "ffffff", "d40000", "")
     call <SID>X("Identifier", "ff0086", "", "")
     call <SID>X("Label", "ff0086", "", "")
+    " }}}
 
-    " HTML Highlighting
+    " HTML Highlighting {{{
     call <SID>X("htmlTag", "00bdec", "", "")
     call <SID>X("htmlEndTag", "00bdec", "", "")
     call <SID>X("htmlSpecialTagName", "4aa04a", "", "")
     call <SID>X("htmlTagName", "4aa04a", "", "")
     call <SID>X("htmlTagN", "4aa04a", "", "")
+    " }}}
 
     " delete functions {{{
     delf <SID>X
