@@ -1,26 +1,20 @@
 if !exists('g:light_scheme') | let g:light_scheme='morning' | endif
 if !exists('g:dark_scheme') | let g:dark_scheme='slate' | endif
 
-fu! SetSchemeAndBg(scheme,bg)
+fu! s:SetSchemeAndXtermCursor(scheme,xterm_cursor_color)
   exec "color " . a:scheme
-  "exec "set bg=" . a:bg
-  "let g:colors_name = a:scheme
+  call xterm_cursor#set_color(a:xterm_cursor_color)
 endfu
 
-command! Light call SetSchemeAndBg(g:light_scheme,'light')
-command! Dark call SetSchemeAndBg(g:dark_scheme,'dark')
+command! Light call s:SetSchemeAndXtermCursor(g:light_scheme,'rgb:0/90/0')
+command! Dark call s:SetSchemeAndXtermCursor(g:dark_scheme,'rgb:a0/ff/a0')
 
-fu! ToggleScheme()
+fu! s:ToggleScheme()
   if exists("g:colors_name") && g:colors_name == g:dark_scheme
     Light
   else
     Dark
   endif
 endfu
-command! ToggleScheme call ToggleScheme()
+command! ToggleScheme call s:ToggleScheme()
 
-if exists('g:default_bg') && g:default_bg == 'light'
-  Light
-else
-  Dark
-endif

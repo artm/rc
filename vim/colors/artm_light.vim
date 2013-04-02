@@ -243,9 +243,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " }}}
 
     " Global {{{
-    call <SID>X("Normal", "000000", s:main_background, "")
-    call <SID>X("NonText", "e0e0e0", s:main_background, "")
-    call <SID>X("SpecialKey", "ff0000", "e0e0e0", "")
+    call <SID>X("Normal", "000000", s:main_background, "none")
+    call <SID>X("NonText", "e0e0e0", s:main_background, "none")
+    call <SID>X("SpecialKey", "ff0000", "e0e0e0", "none")
     " }}}
 
     " Search {{{

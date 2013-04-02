@@ -3,11 +3,7 @@
 " gnome terminal doesn't support cursor reset (but I don't use
 " gnome terminal for other reasons)
 
-" TODO make these global parameters
-" normal cursor (most modes)
-let g:xterm_cursor_normal_color='green'
 let g:xterm_cursor_normal_shape='blinking-block'
-let g:xterm_cursor_insert_color='red'
 let g:xterm_cursor_insert_shape='blinking-underscore'
 
 let s:cursor_shapes = {
@@ -46,11 +42,11 @@ fu! xterm_cursor#send_escape_sequence(sequence)
 endfu
 
 fu! xterm_cursor#set_color(color)
-  call xterm_cursor#send_escape_sequence( s:xterm_cursor_color( a:color ) )
-  redraw!
+  if &term =~ "xterm\\|rxvt\\|screen"
+    call xterm_cursor#send_escape_sequence( s:xterm_cursor_color( a:color ) )
+    redraw!
+  endif
 endfu
-
-let g:xterm_reset_cursor = s:xterm_cursor_shape('solid-block') . s:xterm_cursor_color('gray')
 
 if &term =~ "xterm\\|rxvt\\|screen"
   " cursor color escapes make the terminal blink, so don't
@@ -62,8 +58,5 @@ if &term =~ "xterm\\|rxvt\\|screen"
   set ttm=100
 
   " initialization
-  call xterm_cursor#set_color(g:xterm_cursor_normal_color)
   call xterm_cursor#send_escape_sequence(&t_EI)
-
-
 endif
