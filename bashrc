@@ -155,6 +155,8 @@ if have_exe vim ; then
   alias vi=vim
   export EDITOR=vim
 fi
+
+have_exe gnome-open && alias open='gnome-open > /dev/null 2>&1'
 # }}}
 
 extend_dir_list PATH ~/bin
