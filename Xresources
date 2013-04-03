@@ -1,37 +1,5 @@
 *xterm*faceName: Monospace
 *xterm*faceSize: 7
 *xterm*termName: xterm-256color
-
-*xterm*background: #101010
-*xterm*foreground: #d0d0d0
-*xterm*cursorColor: #d0d0d0
-
-# For color numbers see https://wiki.archlinux.org/index.php/Xdefaults#Terminal_colors
-*xterm*color0: #101010
-*xterm*color8: #303030
-
-*xterm*color1: #ff6565
-*xterm*color9: #ff8d8d
-
-*xterm*color2: #66aa11
-*xterm*color10: #80ff00
-
-*xterm*color3: #c47f2c
-*xterm*color11: #ffba68
-
-*xterm*color4: #30309b
-*xterm*color12: #5f5fee
-
-*xterm*color5: #7e40a5
-*xterm*color13: #bb88dd
-
-*xterm*color6: #3579a8
-*xterm*color14: #4eb4fa
-
-*xterm*color7: #9999aa
-*xterm*color15: #d0d0d0
-
-
-! See https://github.com/sos4nt/dynamic-colors
 *xterm*dynamicColors: true
 
