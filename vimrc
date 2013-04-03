@@ -25,6 +25,7 @@ set mouse=a
 set backupdir=~/.vim/backup directory=~/.vim/backup backupcopy=yes
 behave xterm " traditional visual mode
 set cursorline cursorcolumn
+set clipboard=unnamedplus
 " }}}
 
 " fix ctrl+cursor keys in tmux {{{
