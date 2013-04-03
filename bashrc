@@ -158,6 +158,9 @@ fi
 # }}}
 
 extend_dir_list PATH ~/bin
+for bin in ~/rc/*/bin ; do
+  extend_dir_list PATH $bin
+done
 
 # locale {{{
 # software messages in American
