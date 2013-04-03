@@ -265,7 +265,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("CursorColumn", "", s:cursor_cross_backround, "")
     call <SID>X("LineNr", "a0a0a0", s:gutter_background, "none")
     call <SID>X("CursorLineNr", "808080", s:cursor_cross_backround, "bold")
-    call <SID>X("MatchParen", "", "", "")
+    call <SID>X("MatchParen", "", s:main_background, "underline")
     call <SID>X("Visual", "", s:highlight_background, "none")
     " }}}
 
