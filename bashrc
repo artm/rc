@@ -161,7 +161,7 @@ have_exe gnome-open && alias open='gnome-open > /dev/null 2>&1'
 
 extend_dir_list PATH ~/bin
 for bin in ~/rc/*/bin ; do
-  if $(basename $(dirname $bin)) = 'bak' ; then continue ; fi
+  if [ "$(basename $(dirname $bin))" = "bak" ] ; then continue ; fi
   extend_dir_list PATH $bin
 done
 
