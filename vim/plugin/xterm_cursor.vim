@@ -25,10 +25,6 @@ fu! s:tmuxify( escape_sequence )
   end
 endfu
 
-fu! s:xterm_cursor_color(color)
-  return s:tmuxify("\e]12;" . a:color . "\x7")
-endfu
-
 fu! s:xterm_cursor_shape(shape)
   let shape = a:shape
   if type(a:shape) == type("")
@@ -37,26 +33,12 @@ fu! s:xterm_cursor_shape(shape)
   return s:tmuxify("\e[" . shape . " q")
 endfu
 
-fu! xterm_cursor#send_escape_sequence(sequence)
-  exec 'silent !echo -ne "' . escape(a:sequence,'\') . '"'
-endfu
-
-fu! xterm_cursor#set_color(color)
-  if &term =~ "xterm\\|rxvt\\|screen"
-    call xterm_cursor#send_escape_sequence( s:xterm_cursor_color( a:color ) )
-    redraw!
-  endif
-endfu
-
 if &term =~ "xterm\\|rxvt\\|screen"
   " cursor color escapes make the terminal blink, so don't
-  let &t_SI = s:xterm_cursor_shape(g:xterm_cursor_insert_shape) " . s:xterm_cursor_color(g:xterm_cursor_insert_color)
-  let &t_EI = s:xterm_cursor_shape(g:xterm_cursor_normal_shape) " . s:xterm_cursor_color(g:xterm_cursor_normal_color)
+  let &t_SI = s:xterm_cursor_shape(g:xterm_cursor_insert_shape)
+  let &t_EI = s:xterm_cursor_shape(g:xterm_cursor_normal_shape)
 
   " these escape codes make vim wait for more characters before reacting.
   " make it wait shorter without sacrificing usability of long key mappings
   set ttm=100
-
-  " initialization
-  call xterm_cursor#send_escape_sequence(&t_EI)
 endif
