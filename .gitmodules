@@ -28,3 +28,6 @@
 [submodule "vim/bundle/xml"]
 	path = vim/bundle/xml
 	url = git://github.com/vim-scripts/xml.vim.git
+[submodule "vim/bundle/ack"]
+	path = vim/bundle/ack
+	url = git://github.com/mileszs/ack.vim.git
