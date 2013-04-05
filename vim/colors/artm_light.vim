@@ -21,6 +21,7 @@ endif
 let g:colors_name="artm_light"
 " }}}
 
+let s:main_foreground = "404040"
 let s:main_background = "fcfcfc"
 let s:cursor_cross_backround = "d2dee6"
 let s:active_window_frame_foreground = "fcfcfc"
@@ -243,7 +244,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " }}}
 
     " Global {{{
-    call <SID>X("Normal", "000000", s:main_background, "none")
+    call <SID>X("Normal", s:main_foreground, s:main_background, "none")
     call <SID>X("NonText", "e0e0e0", s:main_background, "none")
     call <SID>X("SpecialKey", "ff0000", "e0e0e0", "none")
     " }}}
