@@ -4,4 +4,5 @@
 tags
 .bundle
 vendor/*
+!vendor/assets
 .*.sw?
