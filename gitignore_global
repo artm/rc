@@ -6,3 +6,5 @@ tags
 vendor/*
 !vendor/assets
 .*.sw?
+# open office locks
+.~lock*

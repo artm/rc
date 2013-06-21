@@ -1,0 +1,17 @@
+#!/bin/bash
+
+tempo="$1"
+
+if [[ "$tempo" =~ ^[0-9]+(\.[0-9]+)?$ ]] ; then
+  shift
+  for f in "$@" ; do
+    mkdir -p "$tempo"
+    g=$(basename "$f")
+    sox --show-progress "$f" "$tempo/$g" tempo -s $tempo
+  done
+
+else
+
+  echo "Usage: `basename $0` TEMPO FILES..."
+
+fi

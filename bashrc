@@ -157,6 +157,7 @@ if have_exe vim ; then
 fi
 
 have_exe gnome-open && alias open='gnome-open > /dev/null 2>&1'
+have_exe ack-grep && alias ack='ack-grep'
 # }}}
 
 extend_dir_list PATH ~/bin
@@ -164,6 +165,11 @@ for bin in ~/rc/*/bin ; do
   if [ "$(basename $(dirname $bin))" = "bak" ] ; then continue ; fi
   extend_dir_list PATH $bin
 done
+# cabal/haskell (for pandoc)
+extend_dir_list PATH ~/.cabal/bin
+
+# python modules installed with ./setup.py install --user
+extend_dir_list PATH ~/.local/bin
 
 # locale {{{
 # software messages in American

@@ -93,6 +93,9 @@ if has("autocmd") " {{{
     au BufWinLeave * silent! mkview
     au BufWinEnter * silent! loadview
 
+    " disable slow syntax highlighting on large files
+    au BufWinEnter *.md if line2byte(line("$") + 1) > 3000 | syntax clear | endif
+
   augroup END
 endif " }}}
 
