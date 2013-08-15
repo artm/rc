@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ -z "$2" ] ; then echo "Usage: `basename $0` original-db new-db" ; exit 1 ; fi
+echo "Copying schema of $1 to $2"
+createdb "$2" 2> /dev/null
+pg_dump --schema-only --format c "$1" | pg_restore --schema-only --clean --dbname="$2"
