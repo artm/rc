@@ -8,3 +8,5 @@ vendor/*
 .*.sw?
 # open office locks
 .~lock*
+.ruby_version
+.ruby-version

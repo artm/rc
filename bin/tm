@@ -1,0 +1,34 @@
+#!/bin/bash
+
+COMMAND="${1:-help}"
+
+base_pwd() {
+  basename $(pwd)
+}
+
+case "$COMMAND" in
+  help)
+    echo "tm help # <-- you are here"
+    echo "tm zeus # open a (zeus+server+console) window in the current directory"
+    echo "tm dev  # spawn zeus window + setup current window for vim+guard"
+    ;;
+  zeus)
+    ;;
+  dev)
+    bundle
+    tmux new-window -n "`base_pwd`[vim]"
+    tmux setw remain-on-exit on
+    # spawn a zeus/server/console window
+    tmux new-window -n "`base_pwd`[console]" "bundle exec zeus start"
+    tmux setw remain-on-exit on
+    tmux split-window -h "sleep 1 ; zeus console"
+    tmux select-pane -L
+    tmux split-window -v "sleep 1 ; zeus server"
+    tmux last-pane # that'll be the console
+    # return to vim/guard window
+    tmux last-window
+    # continue seting up vim/guard
+    tmux send-keys vim C-m :Gstatus C-m :NERDTree C-m C-w C-w
+    tmux split-window -h "sleep 5 ; bundle exec guard"
+    tmux last-pane # vim
+esac
