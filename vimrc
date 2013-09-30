@@ -53,6 +53,8 @@ nmap <C-w>\| :vert split<CR>
 
 nmap <C-PageUp> :tabN<CR>
 nmap <C-PageDown> :tabn<CR>
+nmap <C-w>[ :tabN<CR>
+nmap <C-w>] :tabn<CR>
 " focus folding on current line
 nmap zf zMzv
 " }}}
