@@ -1,0 +1,4 @@
+#!/bin/sh
+
+LESS="SN#8+g"
+(head -n 1 "$1" ; tail -q -n +2 "$@") | column -nts\; | less
