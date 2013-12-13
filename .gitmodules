@@ -31,3 +31,6 @@
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/jsbeautify"]
+	path = vim/bundle/jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git

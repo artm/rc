@@ -98,6 +98,9 @@ if has("autocmd") " {{{
     " disable slow syntax highlighting on large files
     au BufWinEnter *.md if line2byte(line("$") + 1) > 3000 | syntax clear | endif
 
+    " solve slim plugin problem
+    autocmd BufNewFile,BufRead *.slim set syntax=slim|set ft=slim
+
   augroup END
 endif " }}}
 
