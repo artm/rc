@@ -10,7 +10,7 @@ indent_size = 2
 preserve_newlines = true
 max_preserve_newlines = 2
 jslint_happy = false
-brace_style = collapse
+brace_style = end-expand
 keep_array_indentation = true
 keep_function_indentation = true
 space_before_conditional = true
@@ -27,6 +27,6 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 max_char = 100
-brace_style = expand
+brace_style = end-expand
 
 ; vim:ft=cfg:
