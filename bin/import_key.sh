@@ -5,6 +5,6 @@ if [ -z "$1" ] ; then
   exit 1
 fi
 
-for key_hash in $@ do
+for key_hash in $@ ; do
   gpg --recv-keys $key_hash && gpg --export --armor $key_hash | sudo apt-key add -
 done
