@@ -15,7 +15,7 @@ set autowrite autoread
 set hlsearch incsearch ignorecase smartcase
 noh " don't highlight search after sourcing this file
 set wildmode=list:longest,list:full wildmenu
-set wildignore+=*.o,*.obj,*.rbc,*.class,.git/*,vendor/*
+set wildignore+=*.o,*.obj,*.rbc,*.class,.git/*,vendor/*,node_modules/*,tmp/*,bower_components/*
 set laststatus=2
 set stl=%f%(\ \|\ %Y%)%(\ \|\ %M%R%)%=\|\ B:%n\ %p%%\ %3l/%L\ %c\ \|
 set modeline modelines=10

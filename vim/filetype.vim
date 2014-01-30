@@ -1,5 +1,5 @@
 augroup filetypedetect
-  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Capfile,config.ru,Guardfile,*.rake,*.cap} setf ruby
+  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Capfile,config.ru,Guardfile,*.rake,*.cap} setf ruby
   au BufRead,BufNewFile {SConstruct,SConscript} setf python
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown
   au BufNewFile,BufRead *.hamlc setf haml

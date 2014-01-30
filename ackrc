@@ -24,3 +24,9 @@ html=.haml,.slim
 
 --ignore-dir
 vendor
+
+--ignore-dir
+tmp
+
+--ignore-dir
+node_modules
