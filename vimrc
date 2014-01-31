@@ -6,18 +6,6 @@ let g:neobundle_default_git_protocol='git'
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" [+] vim/bundle/ack
-" [ ] vim/bundle/coffee-script
-" [+] vim/bundle/ctrlp
-" [+] vim/bundle/endwise
-" [+] vim/bundle/fugitive
-" [+] vim/bundle/javascript
-" [ ] vim/bundle/jsbeautify
-" [+] vim/bundle/NERDtree
-" [ ] vim/bundle/slim
-" [+] vim/bundle/surround
-" [-] vim/bundle/ultisnips
-
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -30,6 +18,7 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jelera/vim-javascript-syntax'
 " NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'vim-scripts/JavaScript-Indent'
 
 filetype plugin indent on
 " If there are uninstalled bundles found on startup,
@@ -207,10 +196,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+inoremap <silent> <C-J> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -219,46 +207,19 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplete#enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplete#enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
 
 " Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
+set completeopt+=longest
+let g:neocomplete#enable_auto_select = 1
 "let g:neocomplete#disable_auto_complete = 1
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}
 " neo snippet {{{
 " Plugin key-mappings.
@@ -284,3 +245,17 @@ au FileType javascript call JavaScriptFold()
 " }}}
 " }}}
 
+" asshole vim uber user {{{
+noremap <Left>   <NOP>
+noremap <Right>  <NOP>
+noremap <Up>     <NOP>
+noremap <Down>   <NOP>
+inoremap <Left>   <NOP>
+inoremap <Right>  <NOP>
+inoremap <Up>     <NOP>
+inoremap <Down>   <NOP>
+nnoremap <Left>  :echo 'Use "h"'<CR>
+nnoremap <Right> :echo 'Use "l"'<CR>
+nnoremap <Up>    :echo 'Use "k"'<CR>
+nnoremap <Down>  :echo 'Use "j"'<CR>
+" }}}
