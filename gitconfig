@@ -33,3 +33,5 @@
 [push]
 [branch]
 	autosetuprebase = always
+[push]
+	default = matching
