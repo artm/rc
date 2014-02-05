@@ -1,0 +1,19 @@
+snippet define
+abbr def
+  define([
+    ${1:#:dep_list}
+  ],
+  function() {
+    ${0:TARGET}
+  });
+
+snippet describe
+abbr desc
+  describe( "${1:#:what}" , function() {
+    ${0:TARGET}
+  });
+
+snippet it
+  it( "${1:#:does_what}" , function() {
+    ${0:TARGET}
+  });
