@@ -31,6 +31,5 @@
 
 # vim:filetype=gitconfig
 [push]
-	default = simple
 [branch]
 	autosetuprebase = always
