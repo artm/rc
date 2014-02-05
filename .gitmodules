@@ -22,9 +22,6 @@
 [submodule "vim/bundle/slim"]
 	path = vim/bundle/slim
 	url = git://github.com/slim-template/vim-slim.git
-[submodule "dynamic-colors"]
-	path = dynamic-colors
-	url = https://github.com/sos4nt/dynamic-colors
 [submodule "vim/bundle/xml"]
 	path = vim/bundle/xml
 	url = git://github.com/vim-scripts/xml.vim.git
