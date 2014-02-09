@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+# The idea is to find a unattached session with given prefix or create a new
+# one
+
+case ARGV.size
+when 1
+  session_name = ARGV[0]
+when 2
+  host = ARGV[0]
+  session_name = ARGV[1]
+else
+  puts "Usage: transient-session [host] session"
+  exit 1
+end
+
+exec "ssh #{host} transient-session #{session_name}" if host
+
+exec "tmux new -t #{session_name}"
+
+#tmux ls -F "#{session_name} #{?session_attached,a,d}" | grep -e "^$SESSION"
+
