@@ -169,7 +169,7 @@ let g:dark_scheme='herald'
 nmap <Leader>cc :ToggleScheme<CR>
 syntax enable
 " }}}
-" neo complete {{{
+" neo complcache {{{
 if HasPlugin('neocomplete.vim')
   " Disable AutoComplPop.
   let g:acp_enableAtStartup = 0
