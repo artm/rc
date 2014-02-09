@@ -21,8 +21,9 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jelera/vim-javascript-syntax'
-" NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'vim-scripts/JavaScript-Indent'
+NeoBundle 'slim-template/vim-slim'
 
 filetype plugin indent on
 " If there are uninstalled bundles found on startup,
