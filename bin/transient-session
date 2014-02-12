@@ -1,22 +1,27 @@
 #!/usr/bin/env ruby
 
+def next_name session_name
+  clone_nums = `tmux ls -F "\#{session_name}"`
+    .split("\n")
+    .map{|s| s[/(?<=^#{session_name}_)\d+/].to_i}
+  puts clone_nums
+  num = clone_nums.max + 1
+  "#{session_name}_#{num}"
+end
+
 case ARGV.size
 when 1
   session_name = ARGV[0]
+  exec "tmux new -t #{session_name} -s #{next_name session_name} \\; set-option destroy-unattached on"
 when 2
   host = ARGV[0]
   session_name = ARGV[1]
+  command = %Q[ssh #{host} -t "transient-session #{session_name}"]
+  puts command
+  exec command
 else
   puts "Usage: transient-session [host] session"
   exit 1
 end
 
-exec "ssh #{host} transient-session #{session_name}" if host
 
-def next_name session_name
-  clone_nums = `tmux ls -F "\#{session_name}"`.split("\n").map{|s| s[/^(?=>#{session_name}_)\d+/].to_i}
-  num = clone_nums.max + 1
-  "#{session_name}_#{num}"
-end
-
-exec "tmux new -t #{session_name} -s #{next_name session_name} \\; set-option destroy-unattached on"
