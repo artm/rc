@@ -24,6 +24,7 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'vim-scripts/JavaScript-Indent'
 NeoBundle 'slim-template/vim-slim'
+NeoBundle 'vim-ruby/vim-ruby'
 
 filetype plugin indent on
 " If there are uninstalled bundles found on startup,
