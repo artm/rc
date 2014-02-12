@@ -118,8 +118,8 @@ elseif &t_Co == 256
 	" -> Cursor
 	hi Cursor         ctermbg=227  ctermfg=234   cterm=none
 	hi CursorIM       ctermbg=227  ctermfg=234   cterm=none
-	hi CursorColumn   ctermbg=236                  cterm=none
-	hi CursorLine     ctermbg=236                  cterm=none
+	hi CursorColumn   ctermbg=236                cterm=none
+	hi CursorLine     ctermbg=236                cterm=none
 
 	" -> Folding
 	hi FoldColumn     ctermbg=234  ctermfg=25    cterm=none
