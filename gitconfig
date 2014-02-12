@@ -29,9 +29,8 @@
   changed = green
   untracked = cyan
 
-# vim:filetype=gitconfig
-[push]
 [branch]
 	autosetuprebase = always
 [push]
 	default = matching
+# vim:filetype=gitconfig

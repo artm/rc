@@ -1,0 +1,1 @@
+/home/artm/Pod/mashpodder.sh
