@@ -4,8 +4,7 @@ def next_name session_name
   clone_nums = `tmux ls -F "\#{session_name}"`
     .split("\n")
     .map{|s| s[/(?<=^#{session_name}_)\d+/].to_i}
-  puts clone_nums
-  num = clone_nums.max + 1
+  num = (clone_nums.max || 0) + 1
   "#{session_name}_#{num}"
 end
 
