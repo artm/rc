@@ -172,22 +172,15 @@ syntax enable
 " }}}
 " neo complcache {{{
 if HasPlugin('neocomplete.vim')
-  " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
-  " Use neocomplete.
   let g:neocomplete#enable_at_startup = 1
-  " Use smartcase.
   let g:neocomplete#enable_smart_case = 1
-  " Set minimum syntax keyword length.
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
+  let g:neocomplete#max_list = 10
+  let g:neocomplete#max_keyword_width = 20
+  let g:neocomplete#auto_completion_start_length = 4
+  let g:neocomplete#manual_completion_start_length = 2
+  let g:neocomplete#sources#syntax#min_keyword_length = 4
   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-  " Define dictionary.
-  let g:neocomplete#sources#dictionary#dictionaries = {
-        \ 'default' : '',
-        \ 'vimshell' : $HOME.'/.vimshell_hist',
-        \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+  let g:neocomplete#enable_auto_select = 0
 
   " Define keyword.
   if !exists('g:neocomplete#keyword_patterns')
@@ -213,19 +206,6 @@ if HasPlugin('neocomplete.vim')
   inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
   inoremap <expr><C-y>  neocomplete#close_popup()
   inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-  " Shell like behavior(not recommended).
-  set completeopt+=longest
-  let g:neocomplete#enable_auto_select = 1
-  "let g:neocomplete#disable_auto_complete = 1
-  "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-  " Enable omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-
 endif
 " }}}
 " neo snippet {{{
