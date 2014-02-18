@@ -11,12 +11,15 @@ end
 case ARGV.size
 when 1
   session_name = ARGV[0]
-  exec "tmux new -t #{session_name} -s #{next_name session_name} \\; set-option destroy-unattached on"
+  if system("tmux has-session -t #{session_name}")
+    exec "tmux new -t #{session_name} -s #{next_name session_name} \\; set-option destroy-unattached on"
+  else
+    exec "tmux new -s #{session_name}"
+  end
 when 2
   host = ARGV[0]
   session_name = ARGV[1]
   command = %Q[ssh -X #{host} -t "transient-session #{session_name}"]
-  puts command
   exec command
 else
   puts "Usage: transient-session [host] session"
