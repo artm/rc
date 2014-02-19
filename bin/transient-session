@@ -19,7 +19,7 @@ when 1
 when 2
   host = ARGV[0]
   session_name = ARGV[1]
-  command = %Q[ssh -X #{host} -t "transient-session #{session_name}"]
+  command = %Q[ssh #{host} -t "transient-session #{session_name}"]
   exec command
 else
   puts "Usage: transient-session [host] session"
