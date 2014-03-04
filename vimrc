@@ -35,7 +35,7 @@ NeoBundleCheck
 set nocompatible
 set backspace=indent,eol,start " sane backspacing
 set hidden " don't complain when hiding modified buffers
-set number " always linenumbers
+set number relativenumber " always linenumbers
 set ts=2 sts=2 sw=2 expandtab " default indentation settings
 set showcmd " Show (partial) command in the status line
 set foldmethod=marker foldlevelstart=99
@@ -80,8 +80,6 @@ map <Leader>cd :lcd <C-R>=expand("%:p:h") . "/" <CR><CR>
 nmap <C-w>- :split<CR>
 nmap <C-w>\| :vert split<CR>
 
-nmap <C-PageUp> :tabN<CR>
-nmap <C-PageDown> :tabn<CR>
 nmap <C-w>[ :tabN<CR>
 nmap <C-w>] :tabn<CR>
 " focus folding on current line
