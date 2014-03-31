@@ -7,6 +7,6 @@ augroup filetypedetect
   au BufNewFile,BufRead *.slimbars setf slim
   au BufNewFile,BufRead *.json setf javascript
   au BufNewFile,BufRead *.m setf octave
-  au BufRead,BufNewFile */nginx/conf/* set ft=nginx
+  au BufRead,BufNewFile */nginx/conf/*,nginx*.conf set ft=nginx
 augroup END
 
