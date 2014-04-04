@@ -160,7 +160,15 @@ have_exe gnome-open && alias open='gnome-open > /dev/null 2>&1'
 have_exe ack-grep && alias ack='ack-grep'
 # }}}
 
-export LESS="r"
+# less {{{
+# J -- status column
+# M -- long prompt
+# Q -- quiet (no bell)
+# R -- like 'raw' but only for ANSI colors
+# S -- chop long lines
+# i -- ignore case
+export LESS="-JMQRSi"
+# }}}
 
 # PATH {{{
 extend_dir_list PATH ~/bin
